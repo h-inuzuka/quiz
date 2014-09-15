@@ -1,0 +1,34 @@
+.postcell{
+    margin-top: 10px;
+    background-color: #00EEEE;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.postcell .body{
+    sord-wrap: break-word;
+}
+
+.postcell .info{
+    font-size: 80%;
+}
+
+.postcell .info .data{
+    font-size: 90%;
+    font-style: italic;
+}
+
+.postcell .info .nickname{
+    font-weight: bold;
+}
+
+.postform{
+    margin-top: 10px;
+    background-color: #11ddff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.postform h3{
+    margin-top: 0px;
+}

@@ -1,0 +1,25 @@
+{% extends "frame.twig" %}
+{% block content %}
+    {% autoescape true %}
+        <table>
+            <tr>
+                <td>
+                    <a href="/quiz/questions">問題を作成する</a>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="クイズを作成する">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="クイズに挑戦する">
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    {% endautoescape %}
+{% endblock %}
