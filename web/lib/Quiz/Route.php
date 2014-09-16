@@ -10,6 +10,9 @@ class Route
         $app->add(new \Slim\Extras\Middleware\CsrfGuard());
         $app->get('/', '\Quiz\Controller\Top:show');
         $app->get('/questions', '\Quiz\Controller\Question:show');
+        $app->get('/questions/new', '\Quiz\Controller\Question:createQuestion');
+        $app->post('/questions/new', '\Quiz\Controller\Question:create');
+        
         
         //$app->get('/page/:page_num', '\Tinitter\Controller\TimeLine:show');
         //$app->post('/post/commit', '\Tinitter\Controller\Post:commit');

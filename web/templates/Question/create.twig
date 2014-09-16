@@ -1,0 +1,50 @@
+{% extends "frame.twig" %}
+{% block content %}
+    {% autoescape true %}
+        <form action="/quiz/questions/new" method="post">
+            <table>
+                <tr>
+                    <td>タイトル</td>
+                    <td><input type="text" value="" name="title" placeholder="タイトルを入力してください" class="form-control"></td>
+                    <td><p class="text-waring">{{error_list.nickname}}</p></td>
+                </tr>
+                <tr>
+                    <td>問題文</td>
+                    <td>
+                        <textarea cols="60" rows="5" name="content"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>選択肢１</td>
+                    <td><input type="text" value="" name="choice1"></td>
+                </tr>
+                <tr>
+                    <td>選択肢２</td>
+                    <td><input type="text" value="" name="choice2"></td>
+                </tr>
+                <tr>
+                    <td>選択肢３</td>
+                    <td><input type="text" value="" name="choice3"></td>
+                </tr>
+                <tr>
+                    <td>選択肢４</td>
+                    <td><input type="text" value="" name="choice4"></td>
+                </tr>
+                <tr>
+                    <td>正答</td>
+                    <td>
+                        <select name="correct_answer">
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" name="create" value="問題を作成する">
+            <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
+        </form>
+    {% endautoescape %}
+{% endblock %}

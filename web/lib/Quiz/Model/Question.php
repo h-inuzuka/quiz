@@ -9,7 +9,7 @@ class Question extends \Illuminate\Database\Eloquent\Model
     {
         $questionFindResult = static::orderBy('id', 'ASC')->get()->all();
         $questionList = Common\Common::getTargetOriginal($questionFindResult);
-var_dump($questionList);
+
         return [$questionList];
     }
     
