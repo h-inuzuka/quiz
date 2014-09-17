@@ -13,8 +13,8 @@ create table questions
     updated_at text not null
 );
 
-drop table if exists quizs;
-create table quizs 
+drop table if exists quizzes;
+create table quizzes 
 (
     id integer primary key not null auto_increment,
     title text not null,

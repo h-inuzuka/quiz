@@ -1,27 +1,35 @@
 {% extends "frame.twig" %}
 {% block content %}
     {% autoescape true %}
-        <a href="/quiz/questions/new">問題を作成する</a>
+        問題一覧画面<br><br>
+        <a href="/quiz/questions/new">問題を作成する</a>　　　　　<a href="/quiz/quizzes">クイズ一覧を見る</a><br><br>
+        <table border="1">
+        <thead>
+            <tr>
+                <th>タイトル</th>
+                <th>問題文</th>
+                <th>選択肢１</th>
+                <th>選択肢２</th>
+                <th>選択肢３</th>
+                <th>選択肢４</th>
+                <th>正答</th>
+                <th>作成日</th>
+            </tr>
+        </thead>
+        <tbody>
         {% for question in question_list %}
-            <div class="">
-                <div class="">
-                    {{ question['title'] }}
-                    {{ question['content'] }}
-                    {{ question['choice1'] }}
-                    {{ question['choice2'] }}
-                    {{ question['choice3'] }}
-                    {{ question['choice4'] }}
-                    {{ question['correct_answer'] }}
-                    {{ question['created_at'] }}
-                    {{ question['updated_at'] }}
-                </div>
-                <div class="info">
-                    <span class="">
-                    </span>
-                    <span class="date">
-                    </span>
-                </div>
-            </div>
+            <tr>
+                <td>{{ question['title'] }}</td>
+                <td>{{ question['content'] }}</td>
+                <td>{{ question['choice1'] }}</td>
+                <td>{{ question['choice2'] }}</td>
+                <td>{{ question['choice3'] }}</td>
+                <td>{{ question['choice4'] }}</td>
+                <td>{{ question['correct_answer'] }}</td>
+                <td>{{ question['created_at'] }}</td>
+            </tr>
         {% endfor %}
+        </tbody>
+        </table>
     {% endautoescape %}
 {% endblock %}

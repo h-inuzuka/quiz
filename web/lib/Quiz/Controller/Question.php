@@ -19,7 +19,6 @@ class Question
     
     public function createQuestion()
     {
-        echo "question create<br><br>";
         $app = \Slim\Slim::getInstance();
         
         $app->render('Question/create.twig', [
@@ -29,15 +28,9 @@ class Question
 
     public function create ()
     {
-        echo "question create<br><br>";
-        
         $app = \Slim\Slim::getInstance();
         $params = $app->request->params();
         $error_list = V_Question::byArray($params);
-/*
-        var_dump($params);
-        exit;
-*/
         
         if(empty($error_list)){
             $question = new M_Question;

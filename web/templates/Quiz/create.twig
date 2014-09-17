@@ -1,0 +1,42 @@
+{% extends "frame.twig" %}
+{% block content %}
+    {% autoescape true %}
+        <table>
+       {% for question in question_list %}
+            <tr>
+                <td><a href="">{{ question['title'] }}</a></td><td>{{ question['content'] }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+            <hr>
+            <form action="/quiz/quizzes/new" method="post">
+            <table>
+                <tr>
+                    <td><label>クイズ名</label></td>
+                    <td><input type="text" size="100" value="{{params.title}}" name="title" placeholder="クイズ名を入力してください" class="form-control"></td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.title}}</div></td>
+                </tr>
+                <tr>
+                    <td><label>選択済み問題一覧</label></td>
+                    <td>
+                        <select name="selected_question" size="10" multiple style="width: 525px;">
+                            <option value="1" selected>問題１</option>
+                            <option value="2" selected>あああああ</option>
+                            <option value="3" selected>3</option>
+                            <option value="4" selected>4</option>
+                            <option value="5" selected>5</option>
+                            <option value="6" selected>6</option>
+                            <option value="7" selected>7</option>
+                            <option value="8" selected>8</option>
+                            <option value="9" selected>9</option>
+                            <option value="10" selected>10</option>
+                        </select>
+                    </td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.selected_question}}</div></td>
+                </tr>
+            </table>
+            <input type="submit" name="create" value="クイズを作成する">
+            <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
+        </form>
+    {% endautoescape %}
+{% endblock %}
