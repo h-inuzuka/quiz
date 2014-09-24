@@ -38,21 +38,7 @@ class Question extends \Respect\Validation\Validator
         if(!static::notEmpty()->validate($params['correct_answer'])){
             $error_list['correct_answer'] = '正答を入力してください';
         }
-        
-        /*
-        if(!static::alnum()->validate($params['nickname'])){
-            $error_list['nickname'] = '半角の英数字と空白だけにしてください';
-        }
-        
-        if(!static::length(1, 16)->validate($params['nickname'])){
-            $error_list['nickname'] = '1〜16文字以内にしてください';
-        }
-        
-        if(!static::length(1, 1000)->validate($params['body'])){
-            $error_list['body'] = '1〜1000文字以内にしてください';
-        }
-        
-        */
+
         return $error_list;
     }
 }
