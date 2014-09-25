@@ -1,8 +1,7 @@
 drop table if exists questions;
-create table questions 
+create table questions
 (
     id integer primary key not null auto_increment,
-    quiz_id integer,
     title text not null,
     content text not null,
     choice1 text not null,
@@ -15,7 +14,7 @@ create table questions
 );
 
 drop table if exists quizzes;
-create table quizzes 
+create table quizzes
 (
     id integer primary key not null auto_increment,
     title text not null,
@@ -24,19 +23,31 @@ create table quizzes
 );
 
 drop table if exists answers;
-create table answers 
+create table answers
 (
     id integer primary key not null auto_increment,
-    answer_id integer not null,
+    quiz_id integer not null,
+    answer_status integer not null,
     created_at text not null,
     updated_at text not null
 );
 
 drop table if exists comments;
-create table comments 
+create table comments
 (
     id integer primary key not null auto_increment,
-    comment integer not null,
+    quiz_id integer not null,
+    comment text not null,
+    created_at text not null,
+    updated_at text not null
+);
+
+drop table if exists quiz_question;
+create table quiz_question
+(
+    id integer primary key not null auto_increment,
+    quiz_id integer not null,
+    question_id integer not null,
     created_at text not null,
     updated_at text not null
 );

@@ -10,20 +10,19 @@ class Quiz
 {
     public function show ()
     {
-        $ques = new M_Quiz;
-        $ques->questions();
-        $ques = M_Quiz::find(2)->questions;
-        var_dump($ques);
-        exit;
+        //$quizList = new M_Quiz;
+        //$quizList->questions();
+        //$quizList = M_Quiz::getQuizzes();
+
         
         $app = \Slim\Slim::getInstance();
         
-        list($quiz_list) = M_Quiz::getQuizzes();
+        list($quizList) = M_Quiz::getQuizzes();
 
         
         
         $app->render('Quiz/show.twig', [
-            'quiz_list' => $quiz_list
+            'quiz_list' => $quizList
         ]);
     }
     

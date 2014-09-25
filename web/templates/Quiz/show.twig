@@ -6,6 +6,7 @@
         <table border="1">
         <thead>
             <tr>
+                <th>クイズ番号</th>
                 <th>タイトル</th>
                 <th>作成日</th>
             </tr>
@@ -13,6 +14,7 @@
         <tbody>
         {% for quiz in quiz_list %}
             <tr>
+                <td>{{ quiz['id'] }}</td>
                 <td>{{ quiz['title'] }}</td>
                 <td>{{ quiz['created_at'] }}</td>
             </tr>

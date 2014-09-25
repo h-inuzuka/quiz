@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- <phpunit bootstrap="bootstrap.php"> -->
+<phpunit>
+    <php>
+	    <var name="DB_DSN" value="mysql:dbname=quiz;host=localhost" />
+	    <var name="DB_USER" value="root" />
+	    <var name="DB_PASSWORD" value=""  />
+	    <var name="DB_DBNAME" value="quiz" />
+	    <var name="YAML_FILE" value="quiz.yaml" />
+	</php>>
+<!--
+    <testsuites>
+        <testsuite name="Tinitter Test">
+            <directory>./TestCase/</directory>
+        </testsuite>
+    </testsuites>
+-->
+</phpunit>
