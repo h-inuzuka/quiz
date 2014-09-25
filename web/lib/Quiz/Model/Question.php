@@ -2,9 +2,15 @@
 namespace Quiz\Model;
 
 use Common;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Question extends \Illuminate\Database\Eloquent\Model
+class Question extends Eloquent
 {
+
+    public function quiz() {
+        return $this->BelongsTo('Quiz\Model\Quiz');
+    }
+    
     static function getQuestions()
     {
         $questionFindResult = static::orderBy('id', 'ASC')->get()->all();
@@ -12,6 +18,6 @@ class Question extends \Illuminate\Database\Eloquent\Model
 
         return [$questionList];
     }
-    
+
 
 }

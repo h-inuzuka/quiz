@@ -5,14 +5,23 @@ use \Quiz\Model\Question as M_Question;
 use \Quiz\Model\Quiz as M_Quiz;
 use \Quiz\Validator\Quiz as V_Quiz;
 
+
 class Quiz
 {
     public function show ()
     {
+        $ques = new M_Quiz;
+        $ques->questions();
+        $ques = M_Quiz::find(2)->questions;
+        var_dump($ques);
+        exit;
+        
         $app = \Slim\Slim::getInstance();
         
         list($quiz_list) = M_Quiz::getQuizzes();
 
+        
+        
         $app->render('Quiz/show.twig', [
             'quiz_list' => $quiz_list
         ]);
