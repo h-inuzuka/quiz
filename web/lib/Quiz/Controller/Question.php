@@ -10,10 +10,10 @@ class Question
     {
         $app = \Slim\Slim::getInstance();
         
-        list($question_list) = M_Question::getQuestions();
-
+        list($questionList) = M_Question::getQuestions();
+        
         $app->render('Question/show.twig', [
-            'question_list' => $question_list
+            'question_list' => $questionList
         ]);
     }
     
