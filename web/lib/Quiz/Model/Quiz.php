@@ -9,9 +9,9 @@ use Quiz\Model\Question as M_Question;
 class Quiz extends Eloquent
 {
     
-    public function Questions()
+    public function questions()
     {
-        return $this->belongsToMany('Quiz\Model\Question', 'quiz_question', 'quiz_id', 'question_id');
+        return $this->belongsToMany('Quiz\Model\Question');
     }
 
     static function getQuizzes()

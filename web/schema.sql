@@ -42,12 +42,12 @@ create table comments
     updated_at text not null
 );
 
-drop table if exists quiz_question;
-create table quiz_question
+drop table if exists question_quiz;
+create table question_quiz
 (
     id integer primary key not null auto_increment,
-    quiz_id integer not null,
     question_id integer not null,
+    quiz_id integer not null,
     created_at text not null,
     updated_at text not null
 );

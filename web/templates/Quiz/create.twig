@@ -6,8 +6,8 @@
         <table>
        {% for question in question_list %}
             <tr>
-                <td><input type="checkbox" name="{{question.id}}"></td>
-                <td><a href="">{{ question['title'] }}</a></td><td>{{ question['content'] }}</td>
+                <td><input type="checkbox" name="question[]" value="{{question.id}}"></td>
+                <td>{{ question['title'] }}</td><td>{{ question['content'] }}</td>
             </tr>
         {% endfor %}
         </table>

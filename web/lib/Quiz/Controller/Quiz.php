@@ -4,22 +4,27 @@ namespace Quiz\Controller;
 use \Quiz\Model\Question as M_Question;
 use \Quiz\Model\Quiz as M_Quiz;
 use \Quiz\Validator\Quiz as V_Quiz;
+use Quiz\Model\Question;
 
 
 class Quiz
 {
     public function show ()
     {
-        //$quizList = new M_Quiz;
-        //$quizList->questions();
-        //$quizList = M_Quiz::getQuizzes();
-
-        
         $app = \Slim\Slim::getInstance();
         
         list($quizList) = M_Quiz::getQuizzes();
 
-        
+//         foreach ($quizList as $quiz){
+//             //echo $quiz['id'];
+//             $questionQuiz = M_Quiz::find($quiz['id'])->questions;
+//             //echo PHP_EOL;
+//         }
+//         var_dump($questionQuiz);
+//         exit;
+//        $questionQuiz = M_Quiz::find()->questions;
+//         var_dump($questionQuiz);
+//         exit;
         
         $app->render('Quiz/show.twig', [
             'quiz_list' => $quizList
@@ -40,13 +45,28 @@ class Quiz
         $app = \Slim\Slim::getInstance();
         $params = $app->request->params();
         $error_list = V_Quiz::byArray($params);
-
+        
+//         var_dump($params['question']);
+//         exit;
         
         if(empty($error_list)){
             $quiz = new M_Quiz;
             $quiz->title = $params['title'];
             $quiz->save();
-        
+            
+            $quiz_id = 5;
+//            $quiz->questions()->attach($quiz_id, array($params['question']));
+            $quiz->questions()->sync($params['question']);
+
+//             $quiz = new Quiz(array('title' => 'たいとるー'));
+
+//             $question = new M_Question;
+//             $question = Quiz::getTargetCols(Question::find($params['question']), 'original');
+
+//             var_dump($question);
+//             exit;
+//             $question->quizzes()->insert($quiz);
+            
             $app->redirect('/quiz/quizzes');
         } else {
             list($question_list) = M_Question::getQuestions();
