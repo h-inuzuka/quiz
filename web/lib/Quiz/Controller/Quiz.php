@@ -15,17 +15,12 @@ class Quiz
         
         list($quizList) = M_Quiz::getQuizzes();
 
-//         foreach ($quizList as $quiz){
-//             //echo $quiz['id'];
-//             $questionQuiz = M_Quiz::find($quiz['id'])->questions;
-//             //echo PHP_EOL;
-//         }
-//         var_dump($questionQuiz);
-//         exit;
-//        $questionQuiz = M_Quiz::find()->questions;
-//         var_dump($questionQuiz);
-//         exit;
-        
+        $count = 0;
+        foreach ($quizList as $quiz){
+             array_splice($quizList[$count], 0, 0, Quiz::getTargetCols(M_Quiz::find($quiz['id'])->questions, 'original'));
+            $count++;
+        }
+
         $app->render('Quiz/show.twig', [
             'quiz_list' => $quizList
         ]);
@@ -46,26 +41,12 @@ class Quiz
         $params = $app->request->params();
         $error_list = V_Quiz::byArray($params);
         
-//         var_dump($params['question']);
-//         exit;
-        
         if(empty($error_list)){
             $quiz = new M_Quiz;
             $quiz->title = $params['title'];
             $quiz->save();
             
-            $quiz_id = 5;
-//            $quiz->questions()->attach($quiz_id, array($params['question']));
             $quiz->questions()->sync($params['question']);
-
-//             $quiz = new Quiz(array('title' => 'たいとるー'));
-
-//             $question = new M_Question;
-//             $question = Quiz::getTargetCols(Question::find($params['question']), 'original');
-
-//             var_dump($question);
-//             exit;
-//             $question->quizzes()->insert($quiz);
             
             $app->redirect('/quiz/quizzes');
         } else {
@@ -79,7 +60,7 @@ class Quiz
         
     }
     
-    public function  getTargetCols($arrayList, $target)
+    static public function  getTargetCols($arrayList, $target)
     {
         $arrayTarget = array();
         foreach($arrayList as $arrayLine){ 
