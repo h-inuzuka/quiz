@@ -1,0 +1,11 @@
+{
+  "run_list": [
+    "recipe[rpmupdate]",
+    "recipe[http]",
+    "recipe[php]",
+    "recipe[mysql]"
+  ],
+  "automatic": {
+    "ipaddress": "quiz"
+  }
+}
