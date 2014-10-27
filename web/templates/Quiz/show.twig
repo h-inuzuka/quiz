@@ -1,0 +1,35 @@
+{% extends "frame.twig" %}
+{% block content %}
+    {% autoescape true %}
+        クイズ一覧画面<br><br>
+        <a href="/quiz/quizzes/new">クイズを作成する</a><br><br>
+        <table border="1">
+        <thead>
+            <tr>
+                <th>クイズ番号</th>
+                <th>タイトル</th>
+                <th>作成日</th>
+                <th>問題</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for quiz in quiz_list %}
+            <tr>
+                <td>{{ quiz['id'] }}</td>
+                <td>{{ quiz['title'] }}</td>
+                <td>{{ quiz['created_at'] }}</td>
+                <td>
+                <table>
+                    {% for count in 0..9 %}
+                        <tr><td>
+                            {{ quiz[count]['title'] }}
+                        </td></tr>
+                    {% endfor %}
+                </table>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    {% endautoescape %}
+{% endblock %}

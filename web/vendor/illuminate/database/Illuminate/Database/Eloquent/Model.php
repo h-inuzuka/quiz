@@ -2226,7 +2226,8 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 		// the field. This conveniently picks up those dates and format correct.
 		elseif (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $value))
 		{
-			$value = Carbon::createFromFormat('Y-m-d', $value)->startOfDay();
+			$value = Carbon::createFromFormat('Y/m/d', $value)->startOfDay();
+			//$value = Carbon::createFromFormat('Y-m-d', $value)->startOfDay();
 		}
 
 		// If this value is some other type of string, we'll create the DateTime with
@@ -2261,7 +2262,8 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
 		// fields on the database, while still supporting Carbonized conversion.
 		elseif (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $value))
 		{
-			return Carbon::createFromFormat('Y-m-d', $value)->startOfDay();
+			return Carbon::createFromFormat('Y/m/d', $value)->startOfDay();
+			//return Carbon::createFromFormat('Y-m-d', $value)->startOfDay();
 		}
 
 		// Finally, we will just assume this date is in the format used by default on

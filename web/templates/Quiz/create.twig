@@ -1,0 +1,26 @@
+{% extends "frame.twig" %}
+{% block content %}
+    {% autoescape true %}
+        クイズ一覧
+        <form action="/quiz/quizzes/new" method="post">
+        <table>
+       {% for question in question_list %}
+            <tr>
+                <td><input type="checkbox" name="question[]" value="{{question.id}}"></td>
+                <td>{{ question['title'] }}</td><td>{{ question['content'] }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <hr>
+        <table>
+            <tr>
+                <td><label>クイズ名</label></td>
+                <td><input type="text" size="100" value="{{params.title}}" name="title" placeholder="クイズ名を入力してください" class="form-control"></td>
+                <td><div class="text-waring" style="color: red;">{{error_list.title}}</div></td>
+            </tr>
+        </table>
+        <input type="submit" name="create" value="クイズを作成する">
+        <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
+        </form>
+    {% endautoescape %}
+{% endblock %}

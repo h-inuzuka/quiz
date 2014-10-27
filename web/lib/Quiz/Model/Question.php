@@ -2,16 +2,25 @@
 namespace Quiz\Model;
 
 use Common;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+use Quiz\Model\Quiz as M_Quiz;
 
-class Question extends \Illuminate\Database\Eloquent\Model
+class Question extends Eloquent
 {
-    static function getQuestions()
+
+    public function quizzes()
     {
-        $questionFindResult = static::orderBy('id', 'ASC')->get()->all();
-        $questionList = Common\Common::getTargetOriginal($questionFindResult);
-var_dump($questionList);
-        return [$questionList];
+        return $this->belongsToMany('Quiz\Model\Quiz');
     }
     
+    static function getQuestions()
+    {
+        $questionFindResult = Question::all();
+
+        $questionList = Common\Common::getTargetOriginal($questionFindResult);
+
+        return [$questionList];
+    }
+
 
 }

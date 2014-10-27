@@ -52,7 +52,8 @@ class DateTime extends \Faker\Provider\Base
      * @param string $format
      * @example '2008-11-27'
      */
-    public static function date($format = 'Y-m-d')
+    //public static function date($format = 'Y-m-d')
+    public static function date($format = 'Y/m/d')
     {
         return static::dateTime()->format($format);
     }
