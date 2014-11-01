@@ -1,0 +1,11 @@
+insert into question_quiz values('1', 1, 1, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('2', 2, 1, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('3', 3, 1, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('4', 4, 1, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('5', 5, 1, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('6', 6, 1, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('7', 1, 2, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('8', 2, 2, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('9', 3, 2, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('10', 5, 3, '2014/11/02 00:00:00', '2014/11/01 00:00:01');
+insert into question_quiz values('11', 6, 3, '2014/11/02 00:00:00', '2014/11/01 00:00:01');

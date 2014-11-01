@@ -1,3 +1,5 @@
 .project
 .settings/
 .vagrant/
+.DS_Store
+.buildpath
