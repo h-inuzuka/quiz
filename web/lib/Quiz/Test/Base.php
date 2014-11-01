@@ -1,6 +1,8 @@
 <?php
 namespace Quiz\Test;
 
+use Quiz\Model\Question as M_Question;
+
 class Base extends \PHPUnit_Framework_TestCase
 {
     use \Uzulla\MockSlimClient;
@@ -23,5 +25,27 @@ class Base extends \PHPUnit_Framework_TestCase
     {
         $schema_sql = file_get_contents(TEST_SCHEMA_SQL);
         \Illuminate\Database\Capsule\Manager::connection()->getPdo()->exec($schema_sql);
+        
+        $createQuestion0 = new M_Question;
+        $createQuestion0->createQuestion(
+            'タイトル０', 
+            '問題文００', 
+            '選択肢０１', 
+            '選択肢０２', 
+            '選択肢０３', 
+            '選択肢０４', 
+            4
+            );
+        
+        $createQuestion00 = new M_Question;
+        $createQuestion00->createQuestion(
+            'タイトル００', 
+            '問題文００', 
+            '選択肢１０', 
+            '選択肢２０', 
+            '選択肢３０', 
+            '選択肢４０', 
+            3
+            );
     }
 }
