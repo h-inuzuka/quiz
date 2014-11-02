@@ -1,1 +1,1 @@
-../vendor/bin/phpunit -c phpunit.xml TestCase/Model/QuestionModelTest.php
+../vendor/bin/phpunit -c phpunit.xml 

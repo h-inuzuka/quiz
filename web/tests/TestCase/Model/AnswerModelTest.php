@@ -1,7 +1,10 @@
 <?php
-namespace TestCase\Quiz\Model;
+namespace TestCase\Model;
 
-use \Base\Base;
+use Quiz\Test\Base;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+use Quiz\Model\Question as M_Question;
+use Common\Common;
 
 
 class AnswerModelTest extends Base

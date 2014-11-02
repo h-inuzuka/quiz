@@ -14,13 +14,17 @@ class Quiz extends Eloquent
         return $this->belongsToMany('Quiz\Model\Question');
     }
 
-    static function getQuizzes()
+    public function getQuizzes()
     {
         $quizFindResult = Quiz::all();
-        $quizList = Common\Common::getTargetOriginal($quizFindResult);
+        $quizList = Common\Common::getTargetColumn($quizFindResult, 'original');
 
         return [$quizList];
     }
     
+    public function createQuiz()
+    {
+        
+    }
 
 }

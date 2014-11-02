@@ -1,20 +1,23 @@
 <?php
 namespace TestCase\Quiz\Model;
 
-use \Base\Base;
+use Quiz\Test\Base;
+use Illuminate\Database\Eloquent\Model as Eloquent;
+use Quiz\Model\Question as M_Question;
+use Common\Common;
+use Quiz\Model\Quiz as M_Quiz;
 
 class QuizModelTest extends Base
 {
-    //クイズ全件参照
-    public function testShowAll()
-    {
-
-    }
-
-    //クイズ１件保存（選択された問題との関連も保存される）
+    //クイズの作成と参照
     public function testCreateQuiz()
     {
+        $quiz = new M_Quiz;
+        $quizId = $quiz->createQuiz();
+        $actual = 1;
+        $this->assertEquals(1, $actual);
 
     }
+
 
 }
