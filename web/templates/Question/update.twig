@@ -1,0 +1,55 @@
+{% extends "frame.twig" %}
+{% block content %}
+    {% autoescape true %}
+        <form action="/quiz/questions/updateQuestion" method="post">
+            <table>
+                <tr>
+                    <td><label>タイトル</label></td>
+                    <td><input type="text" size="50" value="{{update_question.title}}" name="title" placeholder="タイトルを入力してください" class="form-control"></td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.title}}</div></td>
+                </tr>
+                <tr>
+                    <td><label>問題文</label></td>
+                    <td>
+                        <textarea cols="72" rows="5" name="content"  placeholder="問題文を入力してください" class="form-control">{{update_question.content}}</textarea>
+                    </td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.content}}</div></td>
+                </tr>
+                <tr>
+                    <td><label>選択肢１</label></td>
+                    <td><input type="text" size="50" value="{{update_question.choice1}}" name="choice1" placeholder="選択肢１を入力してください" class="form-control"></td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.choice1}}</div></td>
+                </tr>
+                <tr>
+                    <td><label>選択肢２</label></td>
+                    <td><input type="text" size="50" value="{{update_question.choice2}}" name="choice2" placeholder="選択肢２を入力してください" class="form-control"></td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.choice2}}</div></td>
+                </tr>
+                <tr>
+                    <td><label>選択肢３</label></td>
+                    <td><input type="text" size="50" value="{{update_question.choice3}}" name="choice3" placeholder="選択肢３を入力してください" class="form-control"></td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.choice3}}</div></td>
+                </tr>
+                <tr>
+                    <td><label>選択肢４</label></td>
+                    <td><input type="text" size="50" value="{{update_question.choice4}}" name="choice4" placeholder="選択肢４を入力してください" class="form-control"></td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.choice4}}</div></td>
+                </tr>
+                <tr>
+                    <td><label>正答</label></td>
+                    <td>
+                        <select name="correct_answer">
+                            <option value=""></option>
+                            {% for i in 1..4%}
+                                <option value="{{i}}" {% if i == update_question.correct_answer %} selected {% endif %}>{{i}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td><div class="text-waring" style="color: red;">{{error_list.correct_answer}}</div></td>
+                </tr>
+            </table>
+            <input type="submit" name="create" value="問題を作成する">
+            <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
+        </form>
+    {% endautoescape %}
+{% endblock %}
