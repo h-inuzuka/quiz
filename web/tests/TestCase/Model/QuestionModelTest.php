@@ -91,23 +91,21 @@ class QuestionModelTest extends Base
     //問題の１件更新
     public function testUpdateQuestion()
     {
-        //id=1のデータを参照
-        $question = M_Question::find(1);
-
-        //タイトルの内容を変更
-        $question->title = 'タイトル変更後';
-        $question->content = '問題文変更後';
-        $question->choice1 = '選択肢１変更後';
-        $question->choice2 = '選択肢２変更後';
-        $question->choice3 = '選択肢３変更後';
-        $question->choice4 = '選択肢４変更後';
-        $question->correct_answer = 1;
+        $question = new M_Question;
         
-        //タイトルを更新
-        $question->save();
-        
+        //id=2の問題データを参照して、以下の情報で更新する
+        $questionId = $question->updateQuestion(
+            2,
+            'タイトル変更後',
+            '問題文変更後',
+            '選択肢１変更後',
+            '選択肢２変更後',
+            '選択肢３変更後',
+            '選択肢４変更後',
+            1
+            );
         //再度同じデータを参照
-        $actual = M_Question::find(1);
+        $actual = M_Question::find($questionId);
 
         //タイトルが変更後のデータになっていることを確認
         $this->assertEquals('タイトル変更後', $actual['original']['title']);
@@ -117,7 +115,5 @@ class QuestionModelTest extends Base
         $this->assertEquals('選択肢３変更後', $actual['original']['choice3']);
         $this->assertEquals('選択肢４変更後', $actual['original']['choice4']);
         $this->assertEquals(1, $actual['original']['correct_answer']);
-
-
     }
 }

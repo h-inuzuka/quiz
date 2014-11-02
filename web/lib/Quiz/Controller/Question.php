@@ -77,6 +77,7 @@ class Question
         if(empty($error_list)){
             $question = new M_Question;
             $questionId = $question->updateQuestion(
+                $params['id'],
                 $params['title'], 
                 $params['content'], 
                 $params['choice1'], 
@@ -85,22 +86,13 @@ class Question
                 $params['choice4'], 
                 $params['correct_answer']
             );
-//             $question->title = $params['title'];
-//             $question->content = $params['content'];
-//             $question->choice1 = $params['choice1'];
-//             $question->choice2 = $params['choice2'];
-//             $question->choice3 = $params['choice3'];
-//             $question->choice4 = $params['choice4'];
-//             $question->correct_answer = $params['correct_answer'];
-//             $question->save();
-        
+            
             $app->redirect('/quiz/questions');
         } else {
             $app->render('Question/create.twig', [
                 'params' => $params,
                 'error_list' => $error_list
-                ]);
+            ]);
         }
-        
     }
 }

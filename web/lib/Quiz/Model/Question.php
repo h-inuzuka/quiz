@@ -50,6 +50,7 @@ class Question extends Eloquent
 
     //問題１件を更新する
     public function updateQuestion(
+        $id,
         $title, 
         $content, 
         $choice1, 
@@ -59,7 +60,7 @@ class Question extends Eloquent
         $correctAnswer
         )
     {
-        $question = new Question();
+        $question = Question::find($id);
         $question->title = $title;
         $question->content = $content;
         $question->choice1 = $choice1;
@@ -69,6 +70,8 @@ class Question extends Eloquent
         $question->correct_answer = $correctAnswer;
         
         $question->save();
+        
+        return $question->id;
     }
 
 }
