@@ -2,6 +2,7 @@
 namespace Quiz\Test;
 
 use Quiz\Model\Question as M_Question;
+use Quiz\Model\Quiz as M_Quiz;
 
 class Base extends \PHPUnit_Framework_TestCase
 {
@@ -46,6 +47,16 @@ class Base extends \PHPUnit_Framework_TestCase
             '選択肢３０', 
             '選択肢４０', 
             3
+            );
+        
+        $quiz = new M_Quiz;
+        $title = 'クイズタイトルテスト０';
+        $quizlist = array(1, 2);
+        
+        //クイズを作成
+        $quizId = $quiz->createQuiz(
+            $title,
+            $quizlist
             );
     }
 }

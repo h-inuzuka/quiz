@@ -46,6 +46,6 @@ create table question_quiz
     id integer primary key not null,
     question_id integer not null,
     quiz_id integer not null,
-    created_at text not null,
-    updated_at text not null
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP not null,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP not null
 );

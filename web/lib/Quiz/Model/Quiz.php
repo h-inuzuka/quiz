@@ -19,12 +19,21 @@ class Quiz extends Eloquent
         $quizFindResult = Quiz::all();
         $quizList = Common\Common::getTargetColumn($quizFindResult, 'original');
 
-        return [$quizList];
+        return $quizList;
     }
     
-    public function createQuiz()
+    public function createQuiz(
+        $quizTitle,
+        $questionIdList
+        )
     {
+        $quiz = new Quiz();
+        $quiz->title = $quizTitle;
+        $quiz->save();
         
+        $quiz->questions()->sync($questionIdList);
+        
+        return $quiz->id;
     }
 
 }
