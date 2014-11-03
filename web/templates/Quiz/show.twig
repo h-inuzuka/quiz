@@ -10,6 +10,7 @@
                 <th>タイトル</th>
                 <th>作成日</th>
                 <th>問題</th>
+                <th>回答</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,12 @@
                         </td></tr>
                     {% endfor %}
                 </table>
+                </td>
+                <td>
+                    <form action="/quiz/answer">
+                        <input type="submit" value="クイズに回答する">
+                        <input type="hidden" name="{{ quiz['id'] }}">
+                    </form>
                 </td>
             </tr>
         {% endfor %}

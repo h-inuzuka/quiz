@@ -1,7 +1,7 @@
 {% extends "frame.twig" %}
 {% block content %}
     {% autoescape true %}
-        クイズ一覧
+        問題一覧
         <form action="/quiz/quizzes/new" method="post">
         <table>
        {% for question in question_list %}
@@ -19,7 +19,7 @@
                 <td><div class="text-waring" style="color: red;">{{error_list.title}}</div></td>
             </tr>
         </table>
-        <input type="submit" name="create" value="クイズを作成する">
+        <input type="submit" value="クイズを作成する">
         <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
         </form>
     {% endautoescape %}
