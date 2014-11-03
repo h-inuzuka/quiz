@@ -28,6 +28,9 @@ create table answers
     id integer primary key not null auto_increment,
     quiz_id integer not null,
     answer_status integer not null,
+    nickname text not null,
+    start_time text not null,
+    end_time text,
     created_at text not null,
     updated_at text not null
 );
