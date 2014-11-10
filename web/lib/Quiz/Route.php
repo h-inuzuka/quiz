@@ -25,7 +25,8 @@ class Route
         $app->post('/quizzes/new', '\Quiz\Controller\Quiz:createQuiz');
         
         //answer
-        $app->post('/quizzes/answer', '\Quiz\Controller\Answer:answer');
+        $app->post('/answer/start', '\Quiz\Controller\Answer:answerStart');
+        $app->post('/answer/end', '\Quiz\Controller\Answer:answerEnd');
         
     }
 }

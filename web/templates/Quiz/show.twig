@@ -29,9 +29,10 @@
                 </table>
                 </td>
                 <td>
-                    <form action="/quiz/answer">
+                    <form action="/quiz/answer/start" method="post">
                         <input type="submit" value="クイズに回答する">
-                        <input type="hidden" name="{{ quiz['id'] }}">
+                        <input type="hidden" name="quiz_id" value="{{ quiz['id'] }}">
+                        <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
                     </form>
                 </td>
             </tr>

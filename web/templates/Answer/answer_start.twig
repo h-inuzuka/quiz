@@ -1,0 +1,25 @@
+{% extends "frame.twig" %}
+{% block content %}
+    {% autoescape true %}
+        クイズ{{quiz_id}}<br><br>
+
+        {% for question in question_list %}
+        第{{loop.index}}問
+        <br>
+            {{ question['title'] }}
+        <br>
+            {{ question['content'] }}
+        <br><br>
+            <input type="radio" value="1" name="{{question['id']}}">{{ question['choice1'] }}
+            <input type="radio" value="1" name="{{question['id']}}">{{ question['choice2'] }}
+            <input type="radio" value="1" name="{{question['id']}}">{{ question['choice3'] }}
+            <input type="radio" value="1" name="{{question['id']}}">{{ question['choice4'] }}
+        <hr>
+        {% endfor %}
+            <form action="/quiz/answer/end" method="post">
+                <input type="submit" value="答え合わせ">
+                <input type="hidden" name="answer_id" value="{{ answer_id }}">
+                <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
+            </form>
+    {% endautoescape %}
+{% endblock %}

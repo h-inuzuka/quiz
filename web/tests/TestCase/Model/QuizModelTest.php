@@ -61,5 +61,31 @@ class QuizModelTest extends Base
         $this->assertEquals(3, $actualQuizRelation[1]['correct_answer']);
     }
 
+    public function testGetQuiz()
+    {
+        //1番目のクイズデータと関連するクイズを取得
+        $quiz = new M_Quiz;
+        $questionList = M_Quiz::find(1);
+        
+//         var_dump($questionList);
+//         exit;
+        
+        
+        //実データ確認
+        $actualQuiz = M_Quiz::find(1);
+        $actualQuestion = M_Question::find(1);
+        
+        //件数
+        $actual = M_Quiz::find(1)->questions;
+        $this->assertEquals(2, count($actual));
+        
+        //クイズ情報
+        $this->assertEquals('クイズタイトルテスト０', $actualQuiz['title']);
+        
+        //問題情報
+        $this->assertEquals('タイトル０', $actualQuestion['title']);
+        $this->assertEquals('問題文００', $actualQuestion['content']);
+       
+    }
 
 }
