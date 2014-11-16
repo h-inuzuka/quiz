@@ -21,7 +21,7 @@ class Answer
         $questionList = $quizzes->find($params['quiz_id'])->questions;
         
         $answer = new M_Answer;
-        $nickname = 'ニックネーム';
+        $nickname = 'land';
         $answerId = $answer->answerStart($params['quiz_id'], $nickname);
         
         $app->render('Answer/answer_start.twig', [
@@ -36,10 +36,8 @@ class Answer
         
         $params = $app->request->params();
         
-//         var_dump($params);
-//         exit;
         $answer = new M_Answer;
-        $result = $answer->answerEnd(
+        $answerId = $answer->answerEnd(
             $params['answer_id'],
             $params['answer1'],
             $params['answer2'],
@@ -53,12 +51,10 @@ class Answer
             $params['answer10']
             );
         
-        
-//         var_dump($result);
-//         exit;
+        $result = $answer->showResult($answerId);
         
         $app->render('Answer/answer_end.twig', [
-            
+            'result' => $result
         ]);
     }
 }

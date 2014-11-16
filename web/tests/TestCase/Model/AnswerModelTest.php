@@ -89,10 +89,10 @@ class AnswerModelTest extends Base
         $answer = new M_Answer;
         
         //解答スタート
-        $answerId = $answer->answerStart(1, 'ニックネーム');
+        $answerId = $answer->answerStart(1, 'land');
         
-        //３秒待つ
-        sleep(3);
+        //2秒待つ
+        sleep(2);
         
         //解答終了
         $answer->answerEnd($answerId, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3);
@@ -106,6 +106,6 @@ class AnswerModelTest extends Base
 
          //結果比較
         $this->assertEquals(10, $result['correctNumber']);
-        $this->assertEquals(3, $result['responseTime']);
+        $this->assertEquals(2, $result['responseTime']);
     }
 }

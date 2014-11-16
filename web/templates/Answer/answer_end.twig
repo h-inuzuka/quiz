@@ -1,7 +1,19 @@
 {% extends "frame.twig" %}
 {% block content %}
     {% autoescape true %}
-        解答結果
- 
+        あなたの解答結果
+        <br>
+        正解数　：　{{result['correctNumber']}}
+        回答時間　：　{{result['responseTime']}}
+        <hr>
+        <form action="/quiz/ranking" method="get">
+            <input type="submit" value="ランキングを見る" >
+        </form>
+        <hr>
+        <form action="/quiz/comment" method="post">
+            <input type="text" value="" name="comment">
+            <input type="submit" value="コメントする" >
+            <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
+        </form>
     {% endautoescape %}
 {% endblock %}

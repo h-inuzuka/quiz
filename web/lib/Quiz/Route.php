@@ -28,5 +28,8 @@ class Route
         $app->post('/answer/start', '\Quiz\Controller\Answer:answerStart');
         $app->post('/answer/end', '\Quiz\Controller\Answer:answerEnd');
         
+        //comment
+        $app->post('/comment/create', '\Quiz\Controller\Comment:createComment');
+        
     }
 }

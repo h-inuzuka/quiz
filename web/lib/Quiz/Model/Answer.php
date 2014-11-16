@@ -121,8 +121,8 @@ class Answer extends Eloquent
         
         //解答時間を計算
         $responseTime = strtotime($answerResult['end_time']) - strtotime($answerResult['start_time']);
-        
+
         //正解数と解答時間を返却
-        return array('correctNumber' => $correctNumber, 'responseTime' => $responseTime);
+        return array('nickname' => $answerResult['nickname'], 'correctNumber' => $correctNumber, 'responseTime' => $responseTime);
     }
 }
