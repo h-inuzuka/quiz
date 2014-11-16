@@ -77,7 +77,7 @@ class QuizModelTest extends Base
         
         //件数
         $actual = M_Quiz::find(1)->questions;
-        $this->assertEquals(2, count($actual));
+        $this->assertEquals(10, count($actual));
         
         //クイズ情報
         $this->assertEquals('クイズタイトルテスト０', $actualQuiz['title']);

@@ -31,6 +31,16 @@ create table answers
     nickname text not null,
     start_time text not null,
     end_time text,
+    answer1 int,
+    answer2 int,
+    answer3 int,
+    answer4 int,
+    answer5 int,
+    answer6 int,
+    answer7 int,
+    answer8 int,
+    answer9 int,
+    answer10 int,
     created_at text not null,
     updated_at text not null
 );

@@ -28,8 +28,7 @@ class AnswerModelTest extends Base
         
         //件数チェック
         $this->assertEquals(2, count($result));
-// var_dump($result);
-// exit;
+
         //参照した値が正しいことを確認する
         $this->assertEquals(3, $result[0]['quiz_id']);
         $this->assertEquals('trick', $result[0]['nickname']);
@@ -50,15 +49,63 @@ class AnswerModelTest extends Base
         $answer = new M_Answer;
         $answerId = $answer->answerStart(3, 'trick');
 
-        $answer->answerEnd($answerId);
+        $answer->answerEnd(
+            $answerId,
+            1,
+            2,
+            3,
+            4,
+            1,
+            2,
+            3,
+            4,
+            1,
+            2
+            );
         
         $answerResult = M_Answer::find($answerId);
-        
+
         //件数チェック
         $this->assertEquals(1, count($answerResult));
-        
+
         //内容チェック
         $this->assertEquals(200, $answerResult['answer_status']);
         $this->assertNotNull($answerResult['end_time']);
+        $this->assertEquals(1, $answerResult['answer1']);
+        $this->assertEquals(2, $answerResult['answer2']);
+        $this->assertEquals(3, $answerResult['answer3']);
+        $this->assertEquals(4, $answerResult['answer4']);
+        $this->assertEquals(1, $answerResult['answer5']);
+        $this->assertEquals(2, $answerResult['answer6']);
+        $this->assertEquals(3, $answerResult['answer7']);
+        $this->assertEquals(4, $answerResult['answer8']);
+        $this->assertEquals(1, $answerResult['answer9']);
+        $this->assertEquals(2, $answerResult['answer10']);
+    }
+    
+    public function testShowResult()
+    {
+        //解答情報を作成
+        $answer = new M_Answer;
+        
+        //解答スタート
+        $answerId = $answer->answerStart(1, 'ニックネーム');
+        
+        //３秒待つ
+        sleep(3);
+        
+        //解答終了
+        $answer->answerEnd($answerId, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3);
+        
+        //結果確認
+        $answerResult = $answer->find(1);
+
+        //結果集計
+        $answer = new M_Answer;
+        $result = $answer->showResult($answerId);
+
+         //結果比較
+        $this->assertEquals(10, $result['correctNumber']);
+        $this->assertEquals(3, $result['responseTime']);
     }
 }

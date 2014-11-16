@@ -41,8 +41,8 @@ class QuestionModelTest extends Base
         $showQuestion = new M_Question;
         $actual = $showQuestion->getAllQuestions();
 
-        //問題を作成した結果、４（初期２件、追加２件）件であることを確認
-        $this->assertEquals(4, count($actual));
+        //問題を作成した結果、４（初期11件、追加２件）件であることを確認
+        $this->assertEquals(13, count($actual));
 
          //今回作成した問題の期待結果を作成
          $expected1 = array(

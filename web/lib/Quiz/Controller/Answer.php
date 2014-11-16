@@ -39,7 +39,19 @@ class Answer
 //         var_dump($params);
 //         exit;
         $answer = new M_Answer;
-        $result = $answer->answerEnd($params['answer_id']);
+        $result = $answer->answerEnd(
+            $params['answer_id'],
+            $params['answer1'],
+            $params['answer2'],
+            $params['answer3'],
+            $params['answer4'],
+            $params['answer5'],
+            $params['answer6'],
+            $params['answer7'],
+            $params['answer8'],
+            $params['answer9'],
+            $params['answer10']
+            );
         
         
 //         var_dump($result);
