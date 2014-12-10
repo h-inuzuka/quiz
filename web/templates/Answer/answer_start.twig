@@ -5,14 +5,11 @@
         <form action="/quiz/answer/end" method="post">
         {% for question in question_list %}
         第{{loop.index}}問
-        <br>
-            {{ question['title'] }}
-        <br>
             {{ question['content'] }}
-        <br><br>
-            <input type="radio" value="1" name="answer{{loop.index}}">{{ question['choice1'] }}
-            <input type="radio" value="2" name="answer{{loop.index}}">{{ question['choice2'] }}
-            <input type="radio" value="3" name="answer{{loop.index}}">{{ question['choice3'] }}
+        <br>
+            <input type="radio" value="1" name="answer{{loop.index}}">{{ question['choice1'] }}<br>
+            <input type="radio" value="2" name="answer{{loop.index}}">{{ question['choice2'] }}<br>
+            <input type="radio" value="3" name="answer{{loop.index}}">{{ question['choice3'] }}<br>
             <input type="radio" value="4" name="answer{{loop.index}}">{{ question['choice4'] }}
         <hr>
         {% endfor %}
