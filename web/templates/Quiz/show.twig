@@ -3,7 +3,7 @@
     {% autoescape true %}
         クイズ一覧画面<br><br>
         <a href="/quiz/quizzes/new">クイズを作成する</a><br><br>
-        <table border="1">
+        <table border="1" class="table table-striped">
         <thead>
             <tr>
                 <th>クイズ番号</th>
@@ -30,7 +30,7 @@
                 </td>
                 <td>
                     <form action="/quiz/answer/start" method="post">
-                        <input type="submit" value="クイズに回答する">
+                        <input type="submit" value="クイズに回答する" class="btn btn-primary">
                         <input type="hidden" name="quiz_id" value="{{ quiz['id'] }}">
                         <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
                     </form>

@@ -7,12 +7,12 @@
         回答時間　：　{{result['responseTime']}}
         <hr>
         <form action="/quiz/ranking" method="get">
-            <input type="submit" value="ランキングを見る" >
+            <input type="submit" value="ランキングを見る" class="btn btn-primary">
         </form>
         <hr>
         <form action="/quiz/comment" method="post">
             <input type="text" value="" name="comment">
-            <input type="submit" value="コメントする" >
+            <input type="submit" value="コメントする" class="btn btn-primary">
             <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
         </form>
     {% endautoescape %}

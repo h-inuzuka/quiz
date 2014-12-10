@@ -4,7 +4,7 @@
         問題一覧画面<br><br>
         <a href="/quiz/questions/new">問題を作成する</a>　　　　　<a href="/quiz/quizzes">クイズ一覧を見る</a><br><br>
         
-        <table border="1">
+        <table border="1" class="table table-striped">
         <thead>
             <tr>
                 <th>タイトル</th>
@@ -31,7 +31,7 @@
                 <td>{{ question['created_at'] }}</td>
                 <td>
                     <form action="/quiz/questions/update" method="get">
-                    <input type="submit" value="問題を更新する">
+                    <input type="submit" value="問題を更新する" class="btn btn-primary">
                     <input type="hidden" name="question_id" value="{{question['id']}}">
                     <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
                     </form>
