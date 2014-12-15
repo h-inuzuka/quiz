@@ -53,6 +53,9 @@ class Answer extends Eloquent
         )
     {
         $answer = Answer::find($answerId);
+        if($answer->end_time != null){
+            return $answerId;
+        }
         
         $answer->end_time = date("Y/m/d H:i:s", time());
         $answer->answer_status = 200;

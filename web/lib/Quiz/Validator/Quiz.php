@@ -8,9 +8,9 @@ class Quiz extends \Respect\Validation\Validator
         $error_list = [];
 
         if(!static::notEmpty()->validate($params['title'])){
-            $error_list['title'] = 'タイトルを入力してください';
+            $error_list['title'] = 'クイズタイトルを入力してください';
         }
-
+        
         return $error_list;
     }
 }

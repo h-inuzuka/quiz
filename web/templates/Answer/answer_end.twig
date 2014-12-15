@@ -3,14 +3,16 @@
     {% autoescape true %}
         あなたの解答結果
         <br>
-        正解数　：　{{result['correctNumber']}}
-        回答時間　：　{{result['responseTime']}}
+        正解数 ： {{result['correctNumber']}}
+        <br>
+        回答時間 ： {{result['responseTime']}}
         <hr>
-        <form action="/quiz/ranking" method="get">
+        <form action="/quiz" method="get">
             <input type="submit" value="ランキングを見る" class="btn btn-primary">
+            <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
         </form>
         <hr>
-        <form action="/quiz/comment" method="post">
+        <form action="/quiz" method="get">
             <input type="text" value="" name="comment" class="form-control">
             <input type="submit" value="コメントする" class="btn btn-primary">
             <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">

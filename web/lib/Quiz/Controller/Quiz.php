@@ -49,19 +49,17 @@ class Quiz
         $params = $app->request->params();
         $error_list = V_Quiz::byArray($params);
         
-//         var_dump($params);
-//         exit;
         if(empty($error_list)){
             $quiz = new M_Quiz;
             $quizId = $quiz->createQuiz($params['title'], $params['question']);
             
             $app->redirect('/quiz/quizzes');
         } else {
-            list($question_list) = M_Question::getQuestions();
+// var_dump($params['question']);
+// exit;
             $app->render('Quiz/create.twig', [
-                'params' => $params,
-                'error_list' => $error_list,
-                'question_list' => $question_list
+                'params' => $params['question'],
+                'error_list' => $error_list
                 ]);
         }
         

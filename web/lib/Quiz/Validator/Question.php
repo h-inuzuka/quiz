@@ -6,10 +6,7 @@ class Question extends \Respect\Validation\Validator
     static function byArray(array $params)
     {
         $error_list = [];
-        /*
-        var_dump($params);
-        exit;
-        */
+
         if(!static::notEmpty()->validate($params['title'])){
             $error_list['title'] = 'タイトルを入力してください';
         }
