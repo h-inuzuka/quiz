@@ -47,7 +47,7 @@ class Quiz
     {
         $app = \Slim\Slim::getInstance();
         $params = $app->request->params();
-        $error_list = V_Quiz::byArray($params);
+        //$error_list = V_Quiz::byArray($params);
         
         if(empty($error_list)){
             $quiz = new M_Quiz;

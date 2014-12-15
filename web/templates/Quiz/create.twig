@@ -20,25 +20,24 @@
         {% endfor %}
         </tbody>
         </table>
-        <div class="question_select_error">jjj</div>
         <hr>
         <label>クイズ名</label>
         <input type="text" size="100" value="{{params.title}}" name="title" 
-            placeholder="クイズ名を入力してください" class="form-control">
+            placeholder="クイズ名を入力してください" class="form-control required">
         <div class="text-waring" style="color: red;">{{error_list.title}}</div>
-        <input type="submit" value="クイズを作成する" class="btn btn-primary" onclick="countChecked();">
+        <input type="submit" value="クイズを作成する" class="btn btn-primary" onclick="check();">
         <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
         </form>
-        <script>
-            function countChecked() {
-            var n = $("input:checked").length;
-            if(n != 10){
-//                alert("問題を１０個選択してください。");
-var a = $('div.question_select_error').val();
-                alert(a); 
-                event.preventDefault();
+            <script>
+                function check(){
+                  var count = $("input:checked").length;
+                  
+                  if(count != 10){
+                    alert("10問選択してください");
+                    event.preventDefault();
+                    return false;
+                  }
                 }
-            }
-        </script>
+            </script>
     {% endautoescape %}
 {% endblock %}
