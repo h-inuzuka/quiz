@@ -14,7 +14,7 @@
         <tbody>
        {% for question in question_list %}
             <tr>
-                <td><input type="checkbox" name="question[]" value="{{question.id}}"></td>
+                <td><input type="checkbox" class="checkbox" name="question[]" value="{{question.id}}"></td>
                 <td>{{ question['title'] }}</td><td>{{ question['content'] }}</td>
             </tr>
         {% endfor %}
@@ -25,7 +25,7 @@
         <input type="text" size="100" value="{{params.title}}" name="title" 
             placeholder="クイズ名を入力してください" class="form-control required">
         <div class="text-waring" style="color: red;">{{error_list.title}}</div>
-        <input type="submit" value="クイズを作成する" class="btn btn-primary">
+        <input type="submit" value="クイズを作成する" class="btn btn-primary" onclick="checkInput();">
         <input type="hidden" name="{{csrf_key}}" value="{{csrf_token}}">
         </form>
     {% endautoescape %}
